@@ -11,21 +11,31 @@ import * as strings from 'BeersWebPartStrings';
 import Beers from './components/Beers';
 import { IBeersProps } from './components/IBeersProps';
 
+import { IBeer, BrewZapService} from './../../services/brewZapService';
+
 export interface IBeersWebPartProps {
   description: string;
 }
 
 export default class BeersWebPart extends BaseClientSideWebPart<IBeersWebPartProps> {
+  private brewZapService: BrewZapService;
 
-  public render(): void {
-    const element: React.ReactElement<IBeersProps > = React.createElement(
-      Beers,
-      {
-        description: this.properties.description
-      }
-    );
+  public async render() {
+    try {
+      this.brewZapService = new BrewZapService(this.context.httpClient);
+      let beers = await this.brewZapService.getBeers();
 
-    ReactDom.render(element, this.domElement);
+      const element: React.ReactElement<IBeersProps > = React.createElement(
+        Beers,
+        {
+          beers: beers
+        }
+      );
+      ReactDom.render(element, this.domElement);
+    }
+    catch (exception) {
+      console.log('Exception - ', exception);
+    }
   }
 
   protected onDispose(): void {

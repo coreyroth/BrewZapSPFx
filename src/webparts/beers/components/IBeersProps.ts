@@ -1,3 +1,5 @@
+import { IBeer } from './../../../services/brewZapService';
+
 export interface IBeersProps {
-  description: string;
+  beers: IBeer[];
 }
