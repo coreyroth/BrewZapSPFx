@@ -51,7 +51,7 @@ export default class Beers extends React.Component<IBeersProps, {
     );
   }
 
-  updateSegment = (e: CustomEvent) => {
+  private updateSegment = (e: CustomEvent) => {
     this.setState((prevState) => ({
       ...prevState,
       filter: e.detail.value
@@ -60,7 +60,7 @@ export default class Beers extends React.Component<IBeersProps, {
     this.getBeers();
   }
 
-  async getBeers() {
+  private async getBeers() {
     console.log('Filter changed');
     let filterString: string = `${this.state.filter} eq true`;
     let beers = await this.props.brewZapService.getBeers(filterString);
