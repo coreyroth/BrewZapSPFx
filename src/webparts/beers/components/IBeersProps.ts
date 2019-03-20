@@ -1,5 +1,6 @@
-import { IBeer } from './../../../services/brewZapService';
+import { IBeer, BrewZapService } from './../../../services/brewZapService';
 
 export interface IBeersProps {
   beers: IBeer[];
+  brewZapService: BrewZapService;
 }

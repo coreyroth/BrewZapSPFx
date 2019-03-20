@@ -23,12 +23,13 @@ export default class BeersWebPart extends BaseClientSideWebPart<IBeersWebPartPro
   public async render() {
     try {
       this.brewZapService = new BrewZapService(this.context.httpClient);
-      let beers = await this.brewZapService.getBeers();
+      let beers = await this.brewZapService.getBeers('on_tap eq true');
 
       const element: React.ReactElement<IBeersProps > = React.createElement(
         Beers,
         {
-          beers: beers
+          beers: beers,
+          brewZapService: this.brewZapService
         }
       );
       ReactDom.render(element, this.domElement);

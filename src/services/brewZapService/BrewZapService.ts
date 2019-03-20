@@ -8,9 +8,9 @@ export class BrewZapService {
         this.httpClient = httpClient;
     }
 
-    public async getBeers(): Promise<IBeer[]> {
+    public async getBeers(filter: string): Promise<IBeer[]> {
         try {
-            let apiUrl = `https://api.brewzap.com/tables/beer?$filter=(deleted eq false)&$orderby=createdat desc&$count=50`;
+            let apiUrl = `https://api.brewzap.com/tables/beer?$filter=((deleted eq false) and (${filter}))&$orderby=createdat desc&$count=50`;
             let response = await this.httpClient.get(apiUrl, HttpClient.configurations.v1, {
                 headers: [
                     ['ZUMO-API-VERSION', '2.0.0']
