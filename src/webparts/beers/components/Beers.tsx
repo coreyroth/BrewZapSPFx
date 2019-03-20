@@ -5,7 +5,7 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import '@ionic/core/css/core.css';
 import '@ionic/core/css/ionic.bundle.css';
 
-import { IonCard, IonCardContent, IonCardHeader, IonList, IonListHeader, IonItem, IonButton, IonThumbnail, IonLabel } from '@ionic/react';
+import { IonCard, IonCardContent, IonCardHeader, IonList, IonListHeader, IonItem, IonButton, IonThumbnail, IonLabel, IonSegment, IonSegmentButton } from '@ionic/react';
 
 export default class Beers extends React.Component<IBeersProps, {}> {
   public render(): React.ReactElement<IBeersProps> {
@@ -21,13 +21,9 @@ export default class Beers extends React.Component<IBeersProps, {}> {
                 <IonThumbnail slot="start">
                   <img src={beer.beer_label}></img>
                 </IonThumbnail>
-                <h3>
-                  {beer.beer_name}
-                </h3>
-                <br />
-                <p>
-                  {beer.brewery_name}
-                </p>
+                <IonLabel>
+                {beer.beer_name} - {beer.brewery_name}
+                </IonLabel>
               </IonItem>
             ))
           }
