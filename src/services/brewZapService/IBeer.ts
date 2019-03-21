@@ -31,3 +31,24 @@ export interface IBeer {
     push_to_untappd: boolean;
     category_id: string;
 }
+
+export interface IEvent {
+    id: string;
+    createdAt: Date;
+    updatedAt: Date;
+    deleted: boolean;
+    location_id: string;
+    title: string;
+    start_date: Date;
+    end_date: Date;
+    description: string;
+    image_url: string;
+    cost: string;
+    send_notification: true;
+    event_type: string;
+    tenant_id: string;
+    recurring_date: string;
+    location: string;
+    location_address: string;
+    ticket_url: string;
+}

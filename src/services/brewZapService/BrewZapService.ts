@@ -1,5 +1,5 @@
 import { HttpClient } from "@microsoft/sp-http";
-import { IBeer } from './IBeer';
+import { IBeer, IEvent } from './IBeer';
 
 export class BrewZapService {
     private httpClient: HttpClient;
@@ -22,4 +22,20 @@ export class BrewZapService {
             console.log ('Exception calling getBeers - ', exception);
         }
     }
+
+    public async getEvents(tenantId: string, locationId: string): Promise<IEvent[]> {
+        try {
+            let apiUrl = `https://api.brewzap.com/api/EventApi?tenant_id=${tenantId}&location_id=${locationId}`;
+            let response = await this.httpClient.get(apiUrl, HttpClient.configurations.v1, {
+                headers: [
+                    ['ZUMO-API-VERSION', '2.0.0']
+                ]
+            });
+            return response.json();
+        }
+        catch (exception) {
+            console.log ('Exception calling getBeers - ', exception);
+        }
+    }
+    
 }

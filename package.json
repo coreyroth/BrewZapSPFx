@@ -42,6 +42,7 @@
     "@types/chai": "3.4.34",
     "@types/mocha": "2.2.38",
     "ajv": "~5.2.2",
-    "typescript": "3.3.3333"
+    "typescript": "3.3.3333",
+    "@microsoft/rush-stack-compiler-2.7": "0.4.0"
   }
 }

@@ -9,10 +9,19 @@
           "manifest": "./src/webparts/beers/BeersWebPart.manifest.json"
         }
       ]
+    },
+    "events-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/events/EventsWebPart.js",
+          "manifest": "./src/webparts/events/EventsWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "BeersWebPartStrings": "lib/webparts/beers/loc/{locale}.js"
+    "BeersWebPartStrings": "lib/webparts/beers/loc/{locale}.js",
+    "EventsWebPartStrings": "lib/webparts/events/loc/{locale}.js"
   }
 }

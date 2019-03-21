@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "f38b11e0-cc1d-43cf-9caa-da383d82f794",
+  "alias": "EventsWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
+    "group": { "default": "Other" },
+    "title": { "default": "Events" },
+    "description": { "default": "Events web part" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "tenantId": "8a6ad7b4-b039-4c4e-a819-9179d091f7f0",
+      "locationId": "71da9fd9-7fba-4527-abd3-7aecf2a936ba"
+    }
+  }]
+}

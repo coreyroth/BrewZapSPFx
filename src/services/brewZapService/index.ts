@@ -1,2 +1,2 @@
-export { IBeer } from './IBeer';
+export { IBeer, IEvent } from './IBeer';
 export { BrewZapService } from './BrewZapService';
