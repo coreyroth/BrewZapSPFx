@@ -2,11 +2,13 @@ import * as React from 'react';
 import styles from './Beers.module.scss';
 import { IBeersProps } from './IBeersProps';
 import { escape } from '@microsoft/sp-lodash-subset';
+import * as strings from 'BeersWebPartStrings';
+
 import '@ionic/core/css/core.css';
 import '@ionic/core/css/ionic.bundle.css';
 import { IBeer } from '../../../services/brewZapService';
 
-import { IonCard, IonCardContent, IonCardHeader, IonList, IonListHeader, IonItem, IonButton, IonThumbnail, IonLabel, IonSegment, IonSegmentButton } from '@ionic/react';
+import { IonCard, IonCardContent, IonCardHeader, IonList, IonListHeader, IonItem, IonButton, IonThumbnail, IonLabel, IonSegment, IonSegmentButton, IonHeader, IonToolbar, IonTitle } from '@ionic/react';
 
 export default class Beers extends React.Component<IBeersProps, {
   beers: IBeer[],
@@ -25,15 +27,19 @@ export default class Beers extends React.Component<IBeersProps, {
   public render(): React.ReactElement<IBeersProps> {
     return (
       <div className={ styles.beers }>
+      <IonHeader>
+          <IonToolbar color="primary">
+            <IonTitle>
+              {strings.Header}
+            </IonTitle>
+          </IonToolbar>
+        </IonHeader>
       <IonSegment onIonChange={this.updateSegment}>
         <IonSegmentButton value="on_tap" checked={this.state.filter === 'on_tap'}>On Tap</IonSegmentButton>
         <IonSegmentButton value="in_bottle" checked={this.state.filter === 'in_bottle'}>Cans / Bottles</IonSegmentButton>
         <IonSegmentButton value="on_deck" checked={this.state.filter === 'on_deck'}>On Deck</IonSegmentButton>
       </IonSegment>
         <IonList>
-          <IonListHeader>
-            Beers
-          </IonListHeader>
           {
             this.state.beers.map(beer => (
               <IonItem>
